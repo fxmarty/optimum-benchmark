@@ -181,10 +181,10 @@ class Backend(ABC):
                     0,
                     self.pretrained_config.vocab_size,
                     (input_shapes["batch_size"], input_shapes["sequence_length"]),
-                ),
+                ).to(self.device),
                 "attention_mask": torch.ones(
                     (input_shapes["batch_size"], input_shapes["sequence_length"])
-                ),
+                ).to(self.device),
             }, {
                 "batch_size": input_shapes["batch_size"],
                 "sequence_length": input_shapes["sequence_length"],

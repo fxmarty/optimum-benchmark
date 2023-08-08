@@ -112,7 +112,7 @@ def check_no_process_is_running_on_cuda_device(device: torch.device) -> None:
         ]
     )
 
-    if len(pids_on_device_id) > 0:
+    if len(pids_on_device_id) > 1:  # allow Xorg
         raise RuntimeError(
             f"Expected no processes on device {cuda_device_id}, "
             f"found {len(pids_on_device_id)} processes "
