@@ -96,7 +96,7 @@ def check_no_process_is_running_on_cuda_device(device_ids: List[int]) -> None:
             ]
         )
 
-        LOGGER.info(f"os.getpid()", os.getpid())
+        LOGGER.info(f"os.getpid() {os.getpid()}")
         LOGGER.info(f"pids_on_device_id {pids_on_device_id}")
         # TODO: It would be safer to run each run of a sweep in a subprocess. Although we can trust PyTorch to clear GPU memory when asked,
         # it is not a safe assumption to make for all backends.
